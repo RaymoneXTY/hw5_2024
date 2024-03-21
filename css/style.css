@@ -71,10 +71,12 @@ set flex-basis to add an initial size for the cards*/
     .card {flex-basis: 275px;}
 
     /* let the logo and navigation bar remain visible at the top of the screen */
-    header:first-of-type {position: sticky;
+    header:nth-of-type(1) {position: sticky;
     top: 0;
     z-index: 1000;}
+    .card {z-index: 0;}
 }
+
 
 
 /* delete the animation in reduced motion */
@@ -97,7 +99,7 @@ set flex-basis to add an initial size for the cards*/
     .card {border: solid 2px #45ADDD;
         flex-basis: 325px;}
     /* hide the gallery class and its children */
-    #gallery {display: none;}
+    #gallery {visibility: hidden;}
     .gallery * {display: none;}
     /* add thumb up icon after the second children li elements in main*/
     main li:nth-child(2)::after {
