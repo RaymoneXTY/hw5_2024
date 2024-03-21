@@ -1,0 +1,107 @@
+/* animate the logo */
+@keyframes login {
+    0% {width: 25px;
+        opacity: 0;}
+    100% {width: 475px;
+        opacity: 1;}
+}
+
+img#logo {
+    animation: login 5s forwards;
+
+}
+
+/* edit the font and background of the body */
+body {font-family: 'Poppins', serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;}
+
+/* style the flex for the header and .nav_links */
+header {display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;}
+
+.nav_links {display: flex;
+    flex-direction: column;}
+
+/* style the links to have the same color even after they have been visited */
+.nav_links a {color:blue;}
+.nav_links a:visited {color: blue;}
+
+/* style the header elements that are direct children of a card class */
+.card > header {background-color: #288088;
+    border: solid 2px #288088;
+    padding: 20px 0;
+    border-radius: 50px 50px 0 0;}
+/* style border-radius of the card class */
+.card {border-radius: 50px 50px 0 0;}
+
+/* style the card class and pricing class,
+set flex-basis to add an initial size for the cards*/
+.card {display: flex;
+    flex-direction: column;
+    flex-basis: 450px;}
+.pricing {display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;}
+
+/* style the images in the gallery class */
+.gallery img {border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;}
+
+/* set the flex for the gallery class */
+.gallery {display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;}
+
+/* specifications for screen-size greater than 900px */
+@media screen and (min-width: 900px) {
+    /* adjust the flex direction in large screens */
+    header{flex-direction: row;
+        justify-content: space-between;}
+    .nav_links {flex-direction: row;}
+    nav {flex-direction: row;}
+
+    /* adjust the initial size in large screens*/
+    .card {flex-basis: 275px;}
+
+    /* let the logo and navigation bar remain visible at the top of the screen */
+    header:first-of-type {position: sticky;
+    top: 0;
+    z-index: 1000;}
+}
+
+
+/* delete the animation in reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    img#logo {animation: none;
+        width: 475px;
+        opacity: 1;}
+}
+
+/* specifications for printed page in portrait mode */
+@media print and (orientation: portrait) {
+    body {font-family: Arial, Helvetica;
+        background-image: none;}
+    .nav_links {flex-direction: row;
+        justify-content: center;
+        gap: 75%;}
+    .pricing {flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-end;}
+    .card {border: solid 2px #45ADDD;
+        flex-basis: 325px;}
+    /* hide the gallery class and its children */
+    #gallery {display: none;}
+    .gallery * {display: none;}
+    /* add thumb up icon after the second children li elements in main*/
+    main li:nth-child(2)::after {
+        content: url("../images/thumb_up.png");
+        margin-left: 5px;
+        vertical-align: middle;}
+}
